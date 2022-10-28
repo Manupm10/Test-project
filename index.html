@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body style="text-align:center;">
+    <div ng-app="app2">
+        <div ng-controller="ctrl1">
+    <h3 ng-coontroller="ctrl1"><center>Random Number:{{randomNumber}}</center></h3><br><br>
+    <button ng-click="random()">Random</button><br><br>
+    <button ng-click="clear()">Clear</button><br><br>
+    <button ng-click="sum(count)">Add</button>
+    <input type="number" ng-model="values">
+    <button layout-align="right" ng-click="sub(count)">Substract</button>
+    <h1>{{count}}</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+     </div>
+</div>
+    <script>
+    var app2 = angular.module('app2',[]);
+    app2.controller('ctrl1', function($scope){
+        $scope.randomNumber=" ";
+        $scope.values=1;
+        $scope.count=0;
+        $scope.clear = function(){
+            $scope.randomNumber="";
+            $scope.count="";
+            $scope.values="";
+        }
+        $scope.random =function(){
+        $scope.randomNumber = Math.floor((Math.random() * 100) + 1);
+        }
+        $scope.sum = function(){
+            $scope.count=$scope.randomNumber+$scope.values;
+        }
+        $scope.sub = function(){
+            $scope.count=$scope.randomNumber-$scope.values;
+        }
+    });
+    </script>
+</body>
+</html>
